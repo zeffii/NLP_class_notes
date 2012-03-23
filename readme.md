@@ -10,13 +10,13 @@ P(W) = P(W1, W2...Wn)
 **How to compute this?** Use the chain rule of probability. Definition of conditional probabilities:  
 
 - P(A|B) = P(A, B) / P(B)
-- P(A|B) * P(B) = P(A,B)
-- P(A,B) = P(A|B) * P(B)  
+- P(A|B) * P(B) = P(A, B)
+- P(A, B) = P(A|B) * P(B)  
 
 To generalize to multiple variables:
 
-- P(A,B,C,D) = P(A) * P(B|A) * P(C|A,B) * P(D|A,B,C)
-- P(X1,X2...Xn) = P(X1) * P(X2|X1) * P(X3|X1, X2) * P(Xn|X1,X2..Xn-1)
+- P(A, B, C, D) = P(A) * P(B|A) * P(C|A, B) * P(D|A, B, C)
+- P(X1, X2...Xn) = P(X1) * P(X2|X1) * P(X3|X1, X2) * P(Xn|X1, X2..Xn-1)
  
 
 
