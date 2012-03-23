@@ -107,12 +107,51 @@ We want to assign higher probability to 'real' or 'frequently observed' sentence
 
 We train on a **training set** and test the performance of the resulting **LM** on a **test set**. Test sets are never before seen virgin data. An **evaluation metric** tells us how well our model does (responds) on the test set.
 
-**Extrinsic evaulation of N-gram models**
+**Extrinsic evaluation of N-gram models**
 
 The best way to evaluate how two models (A and B) compare is to apply each model to the same task. Tasks like spelling corrector/speech recognizer/Machine Translation System (MT). Run the tasks and analyze the accuracy of A and B, how many mispelled words corrected, how many words recognized correctly or how many words translated correctly.
 
 There is a problem with this analysis method given the Extrinsic **(in vivo)** nature of N-gram models. **It is time/processing expensive** (days/weeks)
 
-Sometimes another way to evaluate models is by intrinsic evaluation called **perplexity**, but it is a poor/bad approximation if the test and training data don't share a lot of similarity. The assertion is that perplexity is ok if two data sets are very similar and that can be OK for **pilot experiments.**
+Sometimes another way to evaluate models is by **intrinsic evaluation** called **perplexity**, but it is a poor/bad approximation if the test and training data don't share a lot of similarity. The assertion is that perplexity is ok if two data sets are very similar and that can be OK for **pilot experiments.** Both are valuable methods.
 
- 
+**intuition of Perplexity**
+
+Claud Shannon. The Shannon Game: how well can we predict the next word? A good language model will attempt to look at the context to narrow down the body of probable words. **uni-grams suck at this game**. 
+
+> If you can guess the next word right, then you are a good language model
+
+**perplexity**, the best language model is one that best predicts an unseen test set. It assigns/gives the highest probability to the sentences that it sees. More formally:
+
+-  *perplexity* is the probabilty of the test set, normlized by the number of words.  
+- PP(W) = P(W1, W2... Wn) ^ (1/n)
+- 		= N root ( 1 / P(w1,W2...Wn) )
+
+When chain ruled:  
+
+-  PP(W) = N root ( product N over all I,  1 / P(Wi|W1...Wi-1) )  
+
+When chain ruled (bigram only):  
+
+-  PP(W) = N root ( product N over all I,  1 / P(Wi|Wi-1) )
+
+> "minimizing perplexity is the same as maximizing probability"
+
+
+**Second idea on perplexity** comes from **Josh Goodman**, based on Shannon :  
+
+>  How hard is the task of recognizing digits '0,1,...9' ? 
+
+Perplexity is related to **Average branching factor**, on average how many things could come next at any point in sentence. (it's related to the entropy on the up comming things)
+
+Example given: Speech recognition for automated operator to connect to an employee. 30,000 unique full names gives a perplexity of 30,000.
+
+Perplexity is the weighted equivalent branching factor. Numbers example:  
+
+-  Operator (1 in 4)
+-  Sales (1 in 4)
+-  Technical Support ( 1 in 4 )
+-  30,000 names ( 1 in 120,000 each =  1/4 * 1/4 * 1/4 * 30,000)  
+-  Perplexity is: 53
+
+Lower perplexity indicates a better trained model. 
