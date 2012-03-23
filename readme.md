@@ -79,4 +79,10 @@ _mr Zeus_ used as a corpus:
 **am** occurs after **I** 2 times , but **I** occurs 3 times in total.
 -  P(do|I) = 1/3  
 
-  
+**Bigram estimates of sentence probabilities**  
+
+P(< s > I want english food < / s >)  
+= P(I|< s >) * P(want|I) * P(english|want) * P(food|english) * P(< / s >|food)  
+= 0.000031  
+
+Zeroes in the probability matrix arise because a corpus doesn't contain certain word combinations. That doesn't mean the word could never follow that word in general english. A zero can indicate that certain words don't logically follow another word, this is especially more visible with much much largers bodies of mixed content text.   
