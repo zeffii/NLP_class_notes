@@ -1,6 +1,7 @@
 # Natural Language Processing #
 
 Annotations and personal elaborations on the Coursera material for the Natural Language Processing course. No affiliation and intended purely to assist my learning the subject.
+This Markup is best read in markdownpad from markdownpad.com
 
 
 **Language modeling** is about _**assigning probabilities to a sentence**_.
@@ -47,8 +48,35 @@ The **Bigram model** is conditioned on the previous word. K = 1
 
 N-gram uses N=K. While sentences will start to look more like a natural language they will still be insufficient as a model of language because language has **long-distance dependancies**. In most cases the output will be intelligable in at a glance for short stretches of text.
 
-This next line shows that computer and crashed can be separated by a large number of words.  Statistically the likelyhood of the word _crashed_ following the word _floor_ is not high, but it does become high as the subject of the sentence is the computer.
+This next line shows that computer and crashed can be separated by a large number of words.  Statistically the likelyhood of the word _crashed_ following the word _floor_ is not high, but it does become high as the subject of the sentence is the computer.  
+
 > "The computer which I had just put into the machine room on the fifth floor crashed"
 
 
+## Estimating N-gram Probabilities ##
 
+The maximum Likelihood Estimate **MLE**:
+
+-  P(Wi|Wi-1) = count(Wi-1, Wi) / count(Wi-1)
+
+_Or stated in English:_  
+Of all the times we saw Wi-1, how many times was it followed by Wi
+  
+< s > means start symbol  
+< /s > means end symbol  
+
+_mr Zeus_ used as a corpus:  
+< s > I am Sam  < / s >  
+< s > Sam I am < / s >  
+< s > I do not like green eggs and ham < / s >  
+  
+-  P(I|< s >) = 2/3    
+-  P(< / s >|Sam) = 1/2  
+-  P(Sam|< s >) = 1/3  
+-  P(Sam|am) = 1/2     
+**Sam** occurs after **am** 1 time, but **am** occurs 2 times in total.  
+-  P(am|I) = 2/3  
+**am** occurs after **I** 2 times , but **I** occurs 3 times in total.
+-  P(do|I) = 1/3  
+
+  
