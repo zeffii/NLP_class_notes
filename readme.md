@@ -18,6 +18,14 @@ To generalize to multiple variables:
 - P(A, B, C, D) = P(A) * P(B|A) * P(C|A, B) * P(D|A, B, C)
 - P(X1, X2...Xn) = P(X1) * P(X2|X1) * P(X3|X1, X2) * P(Xn|X1, X2..Xn-1)
  
+**Joint probability** is used for computing the prability of a string of words.  
+
+- sentence = "its water is so transparent"
+- P(sentence) = P(its) * P(water|its) * P(is|its water) * P(so|its water is) * 
+P(transparent|its water is so)
+- P(W1, W2....Wn) = Product over all i, P(Wi|W1, W2...Wi-1)
+
+**Estimate these probabilities?**
 
 
 
