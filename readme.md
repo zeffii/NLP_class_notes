@@ -88,7 +88,8 @@ P(< s > I want english food < / s >)
 Zeroes in the probability matrix arise because a corpus doesn't contain certain word combinations. That doesn't mean the word could never follow that word in general english. A zero can indicate that certain words don't logically follow another word, this is especially more visible with much larger bodies of mixed content text.  
 
 **log space** 
-With an abundance of near zero values, arithmetic is made faster by using additions and logs. 
+With an abundance of near zero values, arithmetic is made faster by using additions and logs.  
+
 > "Avoids arithmetic underflow"
 
 -  p1 * p2 * p3 * p4 = logP1 + logP2 + logP3 + logP4
@@ -100,3 +101,18 @@ Publicly available language modeling toolkits:
 -  google books n-grams (http://ngrams.googlelabs.com/
 
   
+## Evaluation: How good is our model? ##
+
+We want to assign higher probability to 'real' or 'frequently observed' sentences and assign lower probability to 'ungrammatical' or 'rarely observed' sentences.
+
+We train on a **training set** and test the performance of the resulting **LM** on a **test set**. Test sets are never before seen virgin data. An **evaluation metric** tells us how well our model does (responds) on the test set.
+
+**Extrinsic evaulation of N-gram models**
+
+The best way to evaluate how two models (A and B) compare is to apply each model to the same task. Tasks like spelling corrector/speech recognizer/Machine Translation System (MT). Run the tasks and analyze the accuracy of A and B, how many mispelled words corrected, how many words recognized correctly or how many words translated correctly.
+
+There is a problem with this analysis method given the Extrinsic **(in vivo)** nature of N-gram models. **It is time/processing expensive** (days/weeks)
+
+Sometimes another way to evaluate models is by intrinsic evaluation called **perplexity**, but it is a poor/bad approximation if the test and training data don't share a lot of similarity. The assertion is that perplexity is ok if two data sets are very similar and that can be OK for **pilot experiments.**
+
+ 
