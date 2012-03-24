@@ -164,7 +164,12 @@ My python interpretation of the formula is as follows, rewriting it this way hel
 	import math
 	
 	def perplexity(chances):
-	    """pythonification of the formal definition of perplexity."""
+	    """pythonification of the formal definition of perplexity.
+
+		input: 	a sequence of chances (any iterable will do)
+		output:	perplexity value.
+		"""
+
 	    N = len(chances)
 	    product = 1
 	    for chance in chances:
@@ -253,7 +258,7 @@ The formal expression:
 
 -  P Add-1(Wi|Wi-1) = C(Wi-1, Wi) + 1  /  C(Wi-1)+V  
 
-With (Maximum Likelyhood Estimate) **MLE** suppose a word occurs 400 times in a corpus of 1 million words. The MLE is 400/1, 000,000 = 0.0004
+With (Maximum Likelyhood Estimate) **MLE** suppose a word occurs 400 times in a corpus of 1 million words. The MLE is 400/1, 000,000 = 0.0004. *This may be a bad estimate for the likelyhood of that word occuring in another corpus*
 
 
 
