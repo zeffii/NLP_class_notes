@@ -101,7 +101,7 @@ Publicly available language modeling toolkits:
 -  google books n-grams (http://ngrams.googlelabs.com/
 
   
-## Evaluation: How good is our model? ##
+### Evaluation: How good is our model? ###
 
 We want to assign higher probability to 'real' or 'frequently observed' sentences and assign lower probability to 'ungrammatical' or 'rarely observed' sentences.
 
@@ -194,7 +194,7 @@ This is the general gist of the formula, I would run tests on variations and opt
 
 ----------
 
-# Generalization and zeroes #
+### Generalization and zeroes ###
 
 What to do when we see a lot of zeroes? It helps to consider the Shannon visualization method.
 
@@ -220,7 +220,7 @@ looks like:
 
 So 99.96% of the possible bigrams remain unseen and will have 0 in the table. A vast number of zeroes.
 
--  Quadrigrams: in shakespearean text produce lines that are themselves mostly direct qoutes from shakespear. Because the corpus(N) is so small. Try it.
+-  Quadrigrams: in shakespearean text produce lines that are themselves mostly direct qoutes from shakespeare. Because the corpus(N) is so small. Try it.
 
 **The perils of overfitting**
 
@@ -232,7 +232,7 @@ We need to train models that do a better job of generalizing, make them more rob
 
 Bigrams with zero probability will result in division by zero when calculating perplexity, so they must be counteracted.
 
-#Bigrams with zero probability#
+### Bigrams with zero probability ###
 
 How do we deal with these beasts?
 Simplest idea:
