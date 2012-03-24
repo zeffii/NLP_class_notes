@@ -1,8 +1,10 @@
 # Natural Language Processing #
 
-Annotations and personal elaborations on the Coursera material for the Natural Language Processing course. No affiliation and intended purely to assist my learning the subject.
-This Markup is best read in markdownpad from [markdownpad.com](http://www.markdownpad.com "markdownpad")
+Annotations and personal elaborations on the Coursera material for the Natural Language Processing course. No affiliation to the course is implied and my interpretation of the content can be flawed. This document is purely intended to assist me in the process of learning the subject and is a mix between transcript and personal notes.
 
+This Markup is best read in markdownpad from [markdownpad.com](http://www.markdownpad.com "markdownpad"). Sadly the original implementation of markdown does not include support for super and subscript, if it bugs me enough it might be worth writing a parser that does.
+
+### Language modeling ###
 
 **Language modeling** is about _**assigning probabilities to a sentence**_.
 Used in _machine translation_ and _spell correction_
@@ -50,10 +52,11 @@ N-gram uses N=K. While sentences will start to look more like a natural language
 
 This next line shows that computer and crashed can be separated by a large number of words.  Statistically the likelyhood of the word _crashed_ following the word _floor_ is not high, but it does become high as the subject of the sentence is the computer.  
 
-> "The computer which I had just put into the machine room on the fifth floor crashed"
+> "The computer which I had just put into the machine room on the fifth floor crashed"  
 
 
-## Estimating N-gram Probabilities ##
+### Estimating N-gram Probabilities ###
+
 
 The maximum Likelihood Estimate **MLE**:
 
@@ -161,15 +164,13 @@ My python interpretation of the formula is as follows, rewriting it this way hel
 	import math
 	
 	def perplexity(chances):
-	    '''
-	    pythonification of the formal definition of perplexity.
-	    '''
+	    """pythonification of the formal definition of perplexity."""
 	    N = len(chances)
 	    product = 1
 	    for chance in chances:
 	        product *= chance
 	
-	    # return product**(1/N)
+	    # return product**(-1/N)
 	    return math.pow(product, -1/N)
 	
 This is the general gist of the formula, I would run tests on variations and optimize for speed instead of readability (especially when considering larger sequences). For instance the product of chances might better be calculated like:
@@ -238,6 +239,27 @@ How do we deal with these beasts?
 Simplest idea:
 **Smoothing**.  
 
-Smoothing: Add-one also called Laplace smoothing.
+Smoothing: Add-one also called Laplace smoothing: _**Add-one estimation**_
+
+> If we have sparse statistics. We want to steal probability mass, for combinations that we might not see later, and place it on combinations that didn't occur in the training data.
+
+in brief:
+
+> **Laplace smoothing**  :  
+> Pretend we saw each word one more time that we did.
+> Add one to all counts for all bigrams.
+
+The formal expression:   
+
+-  P Add-1(Wi|Wi-1) = C(Wi-1, Wi) + 1  /  C(Wi-1)+V  
+
+With (Maximum Likelyhood Estimate) **MLE** suppose a word occurs 400 times in a corpus of 1 million words. The MLE is 400/1, 000,000 = 0.0004
+
+
+
+
+
+
+
 
 
