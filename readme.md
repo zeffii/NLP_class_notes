@@ -194,3 +194,50 @@ This is the general gist of the formula, I would run tests on variations and opt
 
 ----------
 
+# Generalization and zeroes #
+
+What to do when we see a lot of zeroes? It helps to consider the Shannon visualization method.
+
+-  choose a random bigram
+-  now choose a bigram that starts with the previos word
+-  go on until you choose the end of sentence token.
+
+looks like:
+
+	< s >	I
+		  	I	want
+		  		want	to
+						to	eat
+							eat Chinese
+								Chinese	food
+										food	< /s >	
+
+**Shakespeare as corpus:**
+
+-  N = 884,647 words (tokens)
+-  V = 29,066 vocabulary (unique roots)
+-  Produced 300K bigram types out 844 million possible = (V^2)
+
+So 99.96% of the possible bigrams remain unseen and will have 0 in the table. A vast number of zeroes.
+
+-  Quadrigrams: in shakespearean text produce lines that are themselves mostly direct qoutes from shakespear. Because the corpus(N) is so small. Try it.
+
+**The perils of overfitting**
+
+N-grams only work well for word prediction if the test corpus looks like the training corpus. Language model trained on Shakespeare will have an abysmal result when looking at the Wallstreet Journal. 
+
+> While A model trained on the Wallstreet Journal (corpus A) might do better on another financial publication (corpus B). 
+
+We need to train models that do a better job of generalizing, make them more robust. Combinations that don't occur in the training set will result in zeros, but the test set might validly contain such combinations.
+
+Bigrams with zero probability will result in division by zero when calculating perplexity, so they must be counteracted.
+
+#Bigrams with zero probability#
+
+How do we deal with these beasts?
+Simplest idea:
+**Smoothing**.  
+
+Smoothing: Add-one also called Laplace smoothing.
+
+
