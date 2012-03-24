@@ -1,7 +1,7 @@
 # Natural Language Processing #
 
 Annotations and personal elaborations on the Coursera material for the Natural Language Processing course. No affiliation and intended purely to assist my learning the subject.
-This Markup is best read in markdownpad from markdownpad.com
+This Markup is best read in markdownpad from [markdownpad.com](http://www.markdownpad.com "markdownpad")
 
 
 **Language modeling** is about _**assigning probabilities to a sentence**_.
@@ -146,7 +146,7 @@ Perplexity is related to **Average branching factor**, on average how many thing
 
 Example given: Speech recognition for automated operator to connect to an employee. 30,000 unique full names gives a perplexity of 30,000.
 
-Perplexity is the weighted equivalent branching factor. Numbers example:  
+Perplexity is the ***weighted equivalent branching factor***. Numbers example:  
 
 -  Operator (1 in 4)
 -  Sales (1 in 4)
