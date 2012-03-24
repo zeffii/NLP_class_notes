@@ -152,6 +152,45 @@ Perplexity is the weighted equivalent branching factor. Numbers example:
 -  Sales (1 in 4)
 -  Technical Support ( 1 in 4 )
 -  30,000 names ( 1 in 120,000 each =  1/4 * 1/4 * 1/4 * 30,000)  
--  Perplexity is: 53
+-  Perplexity is: 53 (52.64...)
 
 Lower perplexity indicates a better trained model. 
+
+My python interpretation of the formula is as follows, rewriting it this way helped me understand the whole idea better:
+
+	import math
+	
+	def perplexity(chances):
+	    '''
+	    pythonification of the formal definition of perplexity.
+	    '''
+	    N = len(chances)
+	    product = 1
+	    for chance in chances:
+	        product *= chance
+	
+	    # return product**(1/N)
+	    return math.pow(product, -1/N)
+	
+This is the general gist of the formula, I would run tests on variations and optimize for speed instead of readability (especially when considering larger sequences). For instance the product of chances might better be calculated like:
+
+	# http://choorucode.wordpress.com/2010/02/05/python-product-of-elements-of-a-list/
+
+	import functools
+	import operator
+	
+	def product(seq):
+	    """Product of a sequence."""
+	    return functools.reduce(operator.mul, seq, 1)
+	
+
+
+----------
+
+*My net searches on the subject of perplexity:*
+
+>  Gregor Heinrich: http://www.arbylon.net/publications/text-est.pdf 
+
+
+----------
+
