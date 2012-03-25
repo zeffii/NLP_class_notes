@@ -255,12 +255,128 @@ in brief:
 > Add one to all counts for all bigrams.
 
 The formal expression:   
+v = words in sentence.
 
 -  P Add-1(Wi|Wi-1) = C(Wi-1, Wi) + 1  /  C(Wi-1)+V  
 
 With (Maximum Likelyhood Estimate) **MLE** suppose a word occurs 400 times in a corpus of 1 million words. The MLE is 400/1, 000,000 = 0.0004. *This may be a bad estimate for the likelyhood of that word occuring in another corpus*
 
+> PP ML(C) <= PP smoothed(C)  
 
+Add-1 estimation makes a massive difference if you compare the result on the reconstituted bigram table vs the raw bigram table, some differences are up to a factor of 10. So now we got rid of the zeros but gained a much greater level of uncertainty about valid syntax. **There are better methods!**
+
+Add-1 is used to smooth other NLP models  
+
+-  For text classification  
+-  In domains where the of zeros isn't so huge.  
+
+It helps for me to think of this as an analogy to the concept of antialiasing in bitmap-graphics.
+
+----------
+
+Further reading on smoothing:  
+*Microsoft Research / Stanley F. Chen & Joshua Goodman*
+[http://research.microsoft.com/~joshuago/tr-10-98.pdf](http://research.microsoft.com/~joshuago/tr-10-98.pdf "An Empirical Study of Smoothing Techniques for")
+
+
+----------
+
+
+## Interpolation ##
+
+Sometimes it helps to use **less** context, applying the requirement for less context with respect to context/situations you haven't learned much about. (rewrite)?
+
+**Backoff:**  
+
+-  _Use a trigram if you have good evidence/data_  
+-  What if you haven't seen a trigram, you look at the bigrams, or if they don't exist for that combination, then you can look look at the unigram.
+
+**Interpolation:**  
+
+-  mixing unigram, bigram, trigram. 
+-  Interpolation tends to work better than backoff. **(clarify?)**
+
+There are (broadly speaking) two kinds of interpolation.  
+**(lambda=λ, must sum to 1 to make them a probability)**
+
+Linear Interpolation: 
+
+- **Simple interpolation**   
+  
+  Adding 1gram+2gram+3gram together depending on weights (λ)  
+  P_hat(Wn|Wn-1Wn-2) =  
+  λ1 * P(trigram) + λ2 * P(bigram) + λ3 * P(unigram)  
+		
+- **Lambdas conditional on context:** (slightly more complicated)  
+
+  Now lambdas are dependant on what the previous two words were.
+
+**Where do the lambdas come from?** How to set lambdas? _We use a held-out corpus_. Choose λ to maximize the probability of held-out data:  
+
+-  Fix the N-gram probabilities (on the training data)
+-  Then search for λs that give the largest probability to held-out set.
+
+(LaTeX needed)
+log P(Wi...Wn|M(λ1...λk)) = sigma over all i log Pm(λ1....λk) ( Wi|Wi-1)  
+
+The held out corpus can be used to set the lambdas, the idea is we take training data, train some Ngrams then choose which lambdas I would use to interpolate those ngams such that it gives me the highest probability of (predicting accurately) this held out data. Find the set of probabilities such that log probabilities of the words of the held out data are highest.
+
+
+##Unknown words: Open versus closed vocabulary tasks##
+
+If we know all the words in advanced then Vocabulary V is fixed and we are talking about a **Closed vocabulary task** (menus, predefined scenarios). Often we don't know this (if a vocabulary is fixed or not) in advance. This translates into **Out of Vocabulary** (OOV) words, and turns the exercise into an **Open vocabulary Task**. 
+
+Instead: utilize an unknown word token < UNK > and train on < UNK > probabilities.  
+
+-  Create a fixed lexicon L of size V  
+-  At text normalization phase, any training word not in L (all OOV words..or rare words) changed to < UNK >  
+-  Now we train its probabilities like any normal word.  
+-  At decoding time, if text input (doesn't match) use UNK probabilities for any such word not in the training data. 
+
+**Huge web-scale n-grams**  
+
+How do we deal with computing probs in such large spaces, we prune. we only story non singleton counts. or compute the entropy/plexity and decide to remove ones that don't contribute (entropy based pruning)
+
+**Efficiency**  
+
+-  Efficient data structures like *tries*  
+-  Bloom filters: apx language models (clarification needed)
+-  Store as indices, not strings.  
+	-  use huffman encoding to fit large numbers of words into 2 byes.
+-  Quantize probabilities (4-8 bits instead of 8-byte float)
+
+**Smoothing for web-scale N-grams**
+
+Use **"stupid backoff"**? (Brants et al. 2007)  (uses scores, rather than probabilities)
+or **No Discounting**, just use relative frequencies.
+
+-		Insert LaTeX here
+
+Add-1 smoothing is ok for text classification but not so great for language modeling. The mot commonly used method of interpolation is the **Extended Kneser-Ney method (elaborate)**. However, for very large N-grams like the web, *stupid backoff* is often adequate.
+
+**Advanced Language Modeling**  
+
+Recent research:
+
+-  **Discrimintive models**: choose n-gram weights to improve a task, not to fit the training set/data.  
+-  **Parsing-based models** ( elaborate soon ).    
+-  **Caching Models**: train on recently used words, they have increased probability of reappearing.  
+Pcache(W|history) =  
+lambdaP(Wi|Wi-2, Wi-1) + (1-lambda)(C(W function of history / |history|)    
+	- Caching model has weak performance in speech recognition (Why?)
+
+## Good Turing Smoothing ##
+
+-  General Formulations (LaTeX)  
+-  Unigram Prior Smoothing (LaTeX), works well, but not great for **LM**)  
+-  Advanced smoothing algorithms, based on some form of intuition
+	-  Good-Turing  
+	-  Kneser-Ney  
+	-  Witten-Bell  
+
+>  *The goal of smoothing algorithms is to replace those unseen zeros with a number that relates to a proposed likelyhood of being present in the body of text being looked at. Sometimes this means using the counts of words that you've seen once to help estimate the count of things we've never seen.*
+
+02:35 Video Good Turing Smoothing.
 
 
 
