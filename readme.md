@@ -376,7 +376,126 @@ lambdaP(Wi|Wi-2, Wi-1) + (1-lambda)(C(W function of history / |history|)
 
 >  *The goal of smoothing algorithms is to replace those unseen zeros with a number that relates to a proposed likelyhood of being present in the body of text being looked at. Sometimes this means using the counts of words that you've seen once to help estimate the count of things we've never seen.*
 
-02:35 Video Good Turing Smoothing.
+**Notion: N sub c** = Frequency of frequency c  
+
+-  Nc = count of things we've seen c times.  
+-  Sam I am I am Sam I do not eat  
+
+	I	3	<	N sub 3 = 1  
+	
+	sam 2	<	  
+	am	2	<	N sub 2 = 2  
+	
+	do	1	<  
+	not	1	<  
+	eat	1	<	N sub 1 = 3
+
+Imagine this scenario (by Josh Goodman). You are fishing and catch: 10 carp, 3 perch, 2 whitefish, 1 trout, 1 salmon, 1 eel. A total of 18 fish.  
+
+*How likely is it that the next species is trout?* 1/18  
+That's fine for species your encountered previously. But how to respond to a new species, *what is the likelyhood of catfish or bass?*  
+
+-  We can use the estimate of things-we-saw-once to estimate the new things.  
+-  3/18 (because N sub 1 = 3)  
+
+Assuming this statement, how likely is it that the next species is trout? It must be less than 1/18 because are going to use probability mass from each fish we have seen and add it to the unseen fish probability. **How do we adjust the new probability spread?**  
+  
+**Good Turing calculations**  
+>  P star subGT (things with zero frequency) = N1 / N  
+  
+>  c star = ((c+1)*Nsubc+1) / Nsubc  
+
+-  Unseen fish ( bass, catfish) 
+	- c = 0;
+	- MLEp = 0/18 = 0
+
+	adjusted for good turing:  
+	- P star sub GT(unseen) = Nsub1/N = 3/18  
+
+- Seen fish once (trout)  
+	- c = 1
+	- MLE p = 1/18  
+
+	adjusted for good turing:  
+	- c star(trout) = (2*Nsub2) / Nsub1 = (2*1)/3 = 2/3  
+	- P star sub GT(trout) = (2/3) / 18 = 1/27  
+
+**Complications of Good-Turing**  
+
+> we can't always use N sub k+1, 
+
+- For small k, Nsubk > N subk+1
+- For large k, too jumpy, zeros wreck estimates.
+
+- Simple Good-Turning [Gale & Sampson] replace empircal Nsubk with best-fit power law once count counts get unreliable. (use a power log function to perform best fit after a certain count of Nsubk) (The graph them combines discreet histogram and at a cutoff point converts everything to a long tail curve)
+
+**Resulting good-Turing numbers:**  
+Example: Numbes from Church and Gale (1991) / 22 million words of AP newswire.
+
+c* = {{(c+1)N_{c+1}} \over {N_c}}  
+
+What is the general relationship betwen these counts?
+
+	Count c |	Good Turing c*  
+	0		|	0.0000270  
+	1		|	0.446  
+	2		|	1.26  
+	3		|	2.24  
+	4		|	3.24  
+	5		|	4.22  
+	6		|	4.19  
+	7		|	6.21  
+	8		|	7.24  
+	9		|	8.25  
+
+Mostly here it's -.75 on each count.
+
+## Kneser-Ney ##
+
+One of the most sophisticated, is Kneser-Ney and it might be intuitive.  
+
+**Absolute Discounting Interpolation**  
+
+- save time by doing no brain subtraction of .75 (or some other discount value for different corpera)  
+P sub AbsoluteDiscounting(Wi|Wi-1) =  
+(c(Wi-1,Wi) - d) / c(Wi-1) + lambda * (Wi-1) * P(W)
+
+**Kneser-Ney Smoothing 1** offers a better estimate for probabilities of lower-order unigram.  
+Example from shannon game: <i>I can't see without my reading _________</i>.  
+The unigram is useful exactly when we haven't seen a bigram.  
+
+- Instead of P(W): "How likely is w"
+- Psub continuation(W): "How likely is w to appear as a novel continuation?"  
+
+>  How do we measure novel continuation? : For each word, count the number of bigram types it completes/creates
+>  Every bigram type was a novel continuation the first time it was seen.  
+>  		**Pcontinuation(W) is proportional to | { Wi-1:c(Wi-1,W)>0 } |**  
+
+**Kneser-Ney Smoothing 2**
+How many times does w appear as a novel continuation:  
+
+-  Pcontinuation(W) \propto | { Wi-1:c(Wi-1,W)>0 } |
+
+Normalized by total number of word bigram types:
+
+- | { (Wj-1,Wj):c(Wj-1,Wj)>0 } |    what is the cardinality of this set,
+
+Pcontinuation(W) = |{Wi-1:c(Wi-1,W)>0}| / |{ (Wj-1,Wj):c(Wj-1,Wj)>0}|  
+or LaTeX
+
+  
+	P_{CONTINUATION}(w) = {|\{w_{i-1}:c(w_{i-1},w)>0\}| 
+	 \over
+	|\{(w_{j-1},w_j):c(w_{j-1},w_j)>0\}|}
+
+![p_continuation](http://dl.dropbox.com/u/3397495/Pcontinuation.gif)
+
+
+  
+
+
+
+	
 
 
 
@@ -384,3 +503,14 @@ lambdaP(Wi|Wi-2, Wi-1) + (1-lambda)(C(W function of history / |history|)
 
 
 
+
+
+
+
+
+
+
+
+
+----------
+harvesting semantic relation / espresso http://www.patrickpantel.com/download/papers/2006/acl06-01.pdf
