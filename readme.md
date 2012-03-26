@@ -2,7 +2,7 @@
 
 Annotations and personal elaborations on the Coursera material for the Natural Language Processing course. No affiliation to the course is implied and my interpretation of the content can be flawed. This document is purely intended to assist me in the process of learning the subject and is a mix between transcript and personal notes.
 
-This Markup is best read in markdownpad from [markdownpad.com](http://www.markdownpad.com "markdownpad"). Sadly the original implementation of markdown does not include support for super and subscript, if it bugs me enough it might be worth writing a parser that does.
+This Markup is best read in markdownpad from [markdownpad.com](http://www.markdownpad.com "markdownpad"). Sadly the original implementation of markdown does not include support for LaTex, if it bugs me enough it might be worth writing a parser that does.
 
 ### Language modeling ###
 
@@ -241,9 +241,7 @@ Bigrams with zero probability will result in division by zero when calculating p
 ### Bigrams with zero probability ###
 
 How do we deal with these beasts?
-Simplest idea:
-**Smoothing**.  
-
+Simplest idea: **Smoothing**.  
 Smoothing: Add-one also called Laplace smoothing: _**Add-one estimation**_
 
 > If we have sparse statistics. We want to steal probability mass, for combinations that we might not see later, and place it on combinations that didn't occur in the training data.
@@ -251,7 +249,7 @@ Smoothing: Add-one also called Laplace smoothing: _**Add-one estimation**_
 in brief:
 
 > **Laplace smoothing**  :  
-> Pretend we saw each word one more time that we did.
+> Pretend we saw each word one more time than we did.
 > Add one to all counts for all bigrams.
 
 The formal expression:   
@@ -490,9 +488,16 @@ or LaTeX
 
 ![p_continuation](http://dl.dropbox.com/u/3397495/Pcontinuation.gif)
 
+**Kneser-Ney SMoothing 3**  
+Alternative metaphor: The number # of word types seen to precede w. Normalized by the # of words preceding all words:
 
+ Latex.  
   
+**Kneser-Ney Smoothing 4**  
 
+ Latex.  
+
+**Kneser-Ney Recursion**
 
 
 	
