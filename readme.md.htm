@@ -1,0 +1,890 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>readme.md</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+body{
+    margin: 0 auto;
+    font-family: Georgia, Palatino, serif;
+    color: #444444;
+    line-height: 1;
+    max-width: 960px;
+    padding: 5px;
+}
+h1, h2, h3, h4 {
+    color: #111111;
+    font-weight: 400;
+}
+h1, h2, h3, h4, h5, p {
+    margin-bottom: 16px;
+    padding: 0;
+}
+h1 {
+    font-size: 28px;
+}
+h2 {
+    font-size: 22px;
+    margin: 20px 0 6px;
+}
+h3 {
+    font-size: 21px;
+}
+h4 {
+    font-size: 18px;
+}
+h5 {
+    font-size: 16px;
+}
+a {
+    color: #0099ff;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+a:hover {
+    text-decoration: none;
+    color: #ff6600;
+}
+a:visited {
+    color: purple;
+}
+ul, ol {
+    padding: 0;
+    margin: 0;
+}
+li {
+    line-height: 24px;
+    margin-left: 44px;
+}
+li ul, li ul {
+    margin-left: 24px;
+}
+p, ul, ol {
+    font-size: 14px;
+    line-height: 20px;
+    max-width: 540px;
+}
+pre {
+    padding: 0px 24px;
+    max-width: 800px;
+    white-space: pre-wrap;
+}
+code {
+    font-family: Consolas, Monaco, Andale Mono, monospace;
+    line-height: 1.5;
+    font-size: 13px;
+}
+aside {
+    display: block;
+    float: right;
+    width: 390px;
+}
+blockquote {
+    border-left:.5em solid #eee;
+    padding: 0 2em;
+    margin-left:0;
+    max-width: 476px;
+}
+blockquote  cite {
+    font-size:14px;
+    line-height:20px;
+    color:#bfbfbf;
+}
+blockquote cite:before {
+    content: '\2014 \00A0';
+}
+
+blockquote p {  
+    color: #666;
+    max-width: 460px;
+}
+hr {
+    width: 540px;
+    text-align: left;
+    margin: 0 auto 0 0;
+    color: #999;
+}
+
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+  *vertical-align: middle;
+}
+button, input {
+  line-height: normal;
+  *overflow: visible;
+}
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+input[type=checkbox], input[type=radio] {
+  cursor: pointer;
+}
+/* override default chrome & firefox settings */
+input:not([type="image"]), textarea {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+label,
+input,
+select,
+textarea {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: normal;
+  margin-bottom: 18px;
+}
+input[type=checkbox], input[type=radio] {
+  cursor: pointer;
+  margin-bottom: 0;
+}
+input[type=text],
+input[type=password],
+textarea,
+select {
+  display: inline-block;
+  width: 210px;
+  padding: 4px;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  height: 18px;
+  color: #808080;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+select, input[type=file] {
+  height: 27px;
+  line-height: 27px;
+}
+textarea {
+  height: auto;
+}
+
+/* grey out placeholders */
+:-moz-placeholder {
+  color: #bfbfbf;
+}
+::-webkit-input-placeholder {
+  color: #bfbfbf;
+}
+
+input[type=text],
+input[type=password],
+select,
+textarea {
+  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+  transition: border linear 0.2s, box-shadow linear 0.2s;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+input[type=text]:focus, input[type=password]:focus, textarea:focus {
+  outline: none;
+  border-color: rgba(82, 168, 236, 0.8);
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+
+/* buttons */
+button {
+  display: inline-block;
+  padding: 4px 14px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  background-color: #0064cd;
+  background-repeat: repeat-x;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#049cdb), to(#0064cd));
+  background-image: -moz-linear-gradient(top, #049cdb, #0064cd);
+  background-image: -ms-linear-gradient(top, #049cdb, #0064cd);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #049cdb), color-stop(100%, #0064cd));
+  background-image: -webkit-linear-gradient(top, #049cdb, #0064cd);
+  background-image: -o-linear-gradient(top, #049cdb, #0064cd);
+  background-image: linear-gradient(top, #049cdb, #0064cd);
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  border: 1px solid #004b9a;
+  border-bottom-color: #003f81;
+  -webkit-transition: 0.1s linear all;
+  -moz-transition: 0.1s linear all;
+  transition: 0.1s linear all;
+  border-color: #0064cd #0064cd #003f81;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+button:hover {
+  color: #fff;
+  background-position: 0 -15px;
+  text-decoration: none;
+}
+button:active {
+  -webkit-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+/* CSS stylesheet is based on Kevin Burke's Markdown.css project (http://kevinburke.bitbucket.org/markdowncss) */
+</style>
+</head>
+<body>
+<h1>Natural Language Processing</h1>
+
+<p>Annotations and personal elaborations on the Coursera material for the Natural Language Processing course. No affiliation to the course is implied and my interpretation of the content can be flawed. This document is purely intended to assist me in the process of learning the subject and is a mix between transcript and personal notes.</p>
+
+<p>This Markup is best read in markdownpad from <a href="http://www.markdownpad.com" title="markdownpad">markdownpad.com</a>. Sadly the original implementation of markdown does not include support for LaTex, if it bugs me enough it might be worth writing a parser that does.</p>
+
+<p>edit: It turns out this is also a showcase of a variety of TeX setting techniques.</p>
+
+<h3>Language modeling</h3>
+
+<p><strong>Language modeling</strong> is about <em><strong>assigning probabilities to a sentence</strong></em>.
+Used in <em>machine translation</em> and <em>spell correction</em></p>
+
+<p>Goal of language model is (Also called '<strong>the grammar</strong>' or '<strong>LM</strong>'):  </p>
+
+<ul>
+<li><p>compute probability of a sentence or sequence of words.<br />
+P(W) = P(W1, W2...Wn)  </p>
+
+<p><img src="http://chart.apis.google.com/chart?chf=bg,s,00000000&amp;cht=tx&amp;chl=P(W)=P(W_1,W_2...W_n)" alt="" /></p></li>
+<li><p>Probability of an upcoming word is P(W5|W1, W2...W4)</p></li>
+</ul>
+
+<p><strong>How to compute this?</strong> Use the chain rule of probability. Definition of conditional probabilities:  </p>
+
+<ul>
+<li>P(A|B) = P(A, B) / P(B)</li>
+<li>P(A|B) * P(B) = P(A, B)</li>
+<li>P(A, B) = P(A|B) * P(B)  </li>
+</ul>
+
+<p>To generalize to multiple variables:</p>
+
+<ul>
+<li>P(A, B, C, D) = P(A) * P(B|A) * P(C|A, B) * P(D|A, B, C)</li>
+<li>P(X1, X2...Xn) = P(X1) * P(X2|X1) * P(X3|X1, X2) * P(Xn|X1, X2..Xn-1)</li>
+</ul>
+
+<p><strong>Joint probability</strong> is used for computing the prability of a string of words.  </p>
+
+<ul>
+<li>sentence = "its water is so transparent"</li>
+<li>P(sentence) = P(its) * P(water|its) * P(is|its water) * P(so|its water is) * 
+P(transparent|its water is so)</li>
+<li>P(W1, W2....Wn) = Product over all i, P(Wi|W1, W2...Wi-1)</li>
+</ul>
+
+<p><strong>Estimate these probabilities?</strong> Yes, the Markov Assumption.  </p>
+
+<ul>
+<li>sentence = "its water is so transparent that"  </li>
+<li>P("the"|sentence) ≈ P(the|transparent that) </li>
+</ul>
+
+<p>Formal definition: the markov assumption of the probability of a sequence of words is the product of the conditional probability of the word given some prefix of the last K words.</p>
+
+<ul>
+<li>P(W1, W2...Wn) ≈ Product(i) P(Wi|Wi-k...Wi-1)  </li>
+<li>P(W1|W1W2...Wi-1) ≈ P(Wi|Wi-k..Wi-1)   </li>
+</ul>
+
+<p>The simplest case is <strong>Unigram</strong> model. They are no more than a concatenation of words picked randomly from a body of text.
+Unigrams tend to be unintelligable.  K = 0</p>
+
+<p>The <strong>Bigram model</strong> is conditioned on the previous word. K = 1</p>
+
+<p>N-gram uses N=K. While sentences will start to look more like a natural language they will still be insufficient as a model of language because language has <strong>long-distance dependancies</strong>. In most cases the output will be intelligable in at a glance for short stretches of text.</p>
+
+<p>This next line shows that computer and crashed can be separated by a large number of words.  Statistically the likelyhood of the word <em>crashed</em> following the word <em>floor</em> is not high, but it does become high as the subject of the sentence is the computer.  </p>
+
+<blockquote>
+  <p>"The computer which I had just put into the machine room on the fifth floor crashed"  </p>
+</blockquote>
+
+<h3>Estimating N-gram Probabilities</h3>
+
+<p>The maximum Likelihood Estimate <strong>MLE</strong>:</p>
+
+<ul>
+<li>P(Wi|Wi-1) = count(Wi-1, Wi) / count(Wi-1)</li>
+</ul>
+
+<p><em>Or stated in English:</em><br />
+Of all the times we saw Wi-1, how many times was it followed by Wi</p>
+
+<p>&lt; s > means start symbol<br />
+&lt; /s > means end symbol  </p>
+
+<p><em>mr Zeus</em> used as a corpus:<br />
+&lt; s > I am Sam  &lt; / s ><br />
+&lt; s > Sam I am &lt; / s ><br />
+&lt; s > I do not like green eggs and ham &lt; / s >  </p>
+
+<ul>
+<li>P(I|&lt; s >) = 2/3    </li>
+<li>P(&lt; / s >|Sam) = 1/2  </li>
+<li>P(Sam|&lt; s >) = 1/3  </li>
+<li>P(Sam|am) = 1/2<br />
+<strong>Sam</strong> occurs after <strong>am</strong> 1 time, but <strong>am</strong> occurs 2 times in total.  </li>
+<li>P(am|I) = 2/3<br />
+<strong>am</strong> occurs after <strong>I</strong> 2 times , but <strong>I</strong> occurs 3 times in total.</li>
+<li>P(do|I) = 1/3  </li>
+</ul>
+
+<p><strong>Bigram estimates of sentence probabilities</strong>  </p>
+
+<p>P(&lt; s > I want english food &lt; / s >)<br />
+= P(I|&lt; s >) * P(want|I) * P(english|want) * P(food|english) * P(&lt; / s >|food)<br />
+= 0.000031  </p>
+
+<p>Zeroes in the probability matrix arise because a corpus doesn't contain certain word combinations. That doesn't mean the word could never follow that word in general english. A zero can indicate that certain words don't logically follow another word, this is especially more visible with much larger bodies of mixed content text.  </p>
+
+<p><strong>log space</strong> 
+With an abundance of near zero values, arithmetic is made faster by using additions and logs.  </p>
+
+<blockquote>
+  <p>"Avoids arithmetic underflow"</p>
+</blockquote>
+
+<ul>
+<li>p1 * p2 * p3 * p4 = logP1 + logP2 + logP3 + logP4</li>
+</ul>
+
+<p>Publicly available language modeling toolkits:  </p>
+
+<ul>
+<li>srilm / speech.sri.com    </li>
+<li>google N-gram release  (pgoogle web corpus)</li>
+<li>google books n-grams (http://ngrams.googlelabs.com/</li>
+</ul>
+
+<h3>Evaluation: How good is our model?</h3>
+
+<p>We want to assign higher probability to 'real' or 'frequently observed' sentences and assign lower probability to 'ungrammatical' or 'rarely observed' sentences.</p>
+
+<p>We train on a <strong>training set</strong> and test the performance of the resulting <strong>LM</strong> on a <strong>test set</strong>. Test sets are never before seen virgin data. An <strong>evaluation metric</strong> tells us how well our model does (responds) on the test set.</p>
+
+<p><strong>Extrinsic evaluation of N-gram models</strong></p>
+
+<p>The best way to evaluate how two models (A and B) compare is to apply each model to the same task. Tasks like spelling corrector/speech recognizer/Machine Translation System (MT). Run the tasks and analyze the accuracy of A and B, how many mispelled words corrected, how many words recognized correctly or how many words translated correctly.</p>
+
+<p>There is a problem with this analysis method given the Extrinsic <strong>(in vivo)</strong> nature of N-gram models. <strong>It is time/processing expensive</strong> (days/weeks)</p>
+
+<p>Sometimes another way to evaluate models is by <strong>intrinsic evaluation</strong> called <strong>perplexity</strong>, but it is a poor/bad approximation if the test and training data don't share a lot of similarity. The assertion is that perplexity is ok if two data sets are very similar and that can be OK for <strong>pilot experiments.</strong> Both are valuable methods.</p>
+
+<p><strong>intuition of Perplexity</strong></p>
+
+<p>Claud Shannon. The Shannon Game: how well can we predict the next word? A good language model will attempt to look at the context to narrow down the body of probable words. <strong>uni-grams suck at this game</strong>. </p>
+
+<blockquote>
+  <p>If you can guess the next word right, then you are a good language model</p>
+</blockquote>
+
+<p><strong>perplexity</strong>, the best language model is one that best predicts an unseen test set. It assigns/gives the highest probability to the sentences that it sees. More formally:</p>
+
+<ul>
+<li><em>perplexity</em> is the probabilty of the test set, normlized by the number of words.  </li>
+<li>PP(W) = P(W1, W2... Wn) ^ (1/n)</li>
+<li>= N root ( 1 / P(w1,W2...Wn) )</li>
+</ul>
+
+<p>When chain ruled:  </p>
+
+<ul>
+<li>PP(W) = N root ( product N over all I,  1 / P(Wi|W1...Wi-1) )  </li>
+</ul>
+
+<p>When chain ruled (bigram only):  </p>
+
+<ul>
+<li>PP(W) = N root ( product N over all I,  1 / P(Wi|Wi-1) )</li>
+</ul>
+
+<blockquote>
+  <p>"minimizing perplexity is the same as maximizing probability"</p>
+</blockquote>
+
+<p><strong>Second idea on perplexity</strong> comes from <strong>Josh Goodman</strong>, based on Shannon :  </p>
+
+<blockquote>
+  <p>How hard is the task of recognizing digits '0,1,...9' ? </p>
+</blockquote>
+
+<p>Perplexity is related to <strong>Average branching factor</strong>, on average how many things could come next at any point in sentence. (it's related to the entropy on the up comming things)</p>
+
+<p>Example given: Speech recognition for automated operator to connect to an employee. 30,000 unique full names gives a perplexity of 30,000.</p>
+
+<p>Perplexity is the <strong><em>weighted equivalent branching factor</em></strong>. Numbers example:  </p>
+
+<ul>
+<li>Operator (1 in 4)</li>
+<li>Sales (1 in 4)</li>
+<li>Technical Support ( 1 in 4 )</li>
+<li>30,000 names ( 1 in 120,000 each =  1/4 * 1/4 * 1/4 * 30,000)  </li>
+<li>Perplexity is: 53 (52.64...)</li>
+</ul>
+
+<p>Lower perplexity indicates a better trained model. </p>
+
+<p>My python interpretation of the formula is as follows, rewriting it this way helped me understand the whole idea better:</p>
+
+<pre><code>import math
+
+def perplexity(chances):
+    """pythonification of the formal definition of perplexity.
+
+    input:  a sequence of chances (any iterable will do)
+    output: perplexity value.
+    """
+
+    N = len(chances)
+    product = 1
+    for chance in chances:
+        product *= chance
+
+    # return product**(-1/N)
+    return math.pow(product, -1/N)
+</code></pre>
+
+<p>This is the general gist of the formula, I would run tests on variations and optimize for speed instead of readability (especially when considering larger sequences). For instance the product of chances might better be calculated like:</p>
+
+<pre><code># http://choorucode.wordpress.com/2010/02/05/python-product-of-elements-of-a-list/
+
+import functools
+import operator
+
+def product(seq):
+    """Product of a sequence."""
+    return functools.reduce(operator.mul, seq, 1)
+</code></pre>
+
+<hr />
+
+<p><em>My net searches on the subject of perplexity:</em></p>
+
+<blockquote>
+  <p>Gregor Heinrich: http://www.arbylon.net/publications/text-est.pdf </p>
+</blockquote>
+
+<hr />
+
+<h3>Generalization and zeroes</h3>
+
+<p>What to do when we see a lot of zeroes? It helps to consider the Shannon visualization method.</p>
+
+<ul>
+<li>choose a random bigram</li>
+<li>now choose a bigram that starts with the previos word</li>
+<li>go on until you choose the end of sentence token.</li>
+</ul>
+
+<p>looks like:</p>
+
+<pre><code>&lt; s &gt;   I
+        I   want
+            want    to
+                    to  eat
+                        eat Chinese
+                            Chinese food
+                                    food    &lt; /s &gt;  
+</code></pre>
+
+<p><strong>Shakespeare as corpus:</strong></p>
+
+<ul>
+<li>N = 884,647 words (tokens)</li>
+<li>V = 29,066 vocabulary (unique roots)</li>
+<li>Produced 300K bigram types out 844 million possible = (V^2)</li>
+</ul>
+
+<p>So 99.96% of the possible bigrams remain unseen and will have 0 in the table. A vast number of zeroes.</p>
+
+<ul>
+<li>Quadrigrams: in shakespearean text produce lines that are themselves mostly direct qoutes from shakespeare. Because the corpus(N) is so small. Try it.</li>
+</ul>
+
+<p><strong>The perils of overfitting</strong></p>
+
+<p>N-grams only work well for word prediction if the test corpus looks like the training corpus. Language model trained on Shakespeare will have an abysmal result when looking at the Wallstreet Journal. </p>
+
+<blockquote>
+  <p>While A model trained on the Wallstreet Journal (corpus A) might do better on another financial publication (corpus B). </p>
+</blockquote>
+
+<p>We need to train models that do a better job of generalizing, make them more robust. Combinations that don't occur in the training set will result in zeros, but the test set might validly contain such combinations.</p>
+
+<p>Bigrams with zero probability will result in division by zero when calculating perplexity, so they must be counteracted.</p>
+
+<h3>Bigrams with zero probability</h3>
+
+<p>How do we deal with these beasts?
+Simplest idea: <strong>Smoothing</strong>.<br />
+Smoothing: Add-one also called Laplace smoothing: <em><strong>Add-one estimation</strong></em></p>
+
+<blockquote>
+  <p>If we have sparse statistics. We want to steal probability mass, for combinations that we might not see later, and place it on combinations that didn't occur in the training data.</p>
+</blockquote>
+
+<p>in brief:</p>
+
+<blockquote>
+  <p><strong>Laplace smoothing</strong>  :<br />
+  Pretend we saw each word one more time than we did.
+  Add one to all counts for all bigrams.</p>
+</blockquote>
+
+<p>The formal expression:<br />
+v = words in sentence.</p>
+
+<ul>
+<li>P Add-1(Wi|Wi-1) = C(Wi-1, Wi) + 1  /  C(Wi-1)+V  </li>
+</ul>
+
+<p>With (Maximum Likelyhood Estimate) <strong>MLE</strong> suppose a word occurs 400 times in a corpus of 1 million words. The MLE is 400/1, 000,000 = 0.0004. <em>This may be a bad estimate for the likelyhood of that word occuring in another corpus</em></p>
+
+<blockquote>
+  <p>PP ML(C) &lt;= PP smoothed(C)  </p>
+</blockquote>
+
+<p>Add-1 estimation makes a massive difference if you compare the result on the reconstituted bigram table vs the raw bigram table, some differences are up to a factor of 10. So now we got rid of the zeros but gained a much greater level of uncertainty about valid syntax. <strong>There are better methods!</strong></p>
+
+<p>Add-1 is used to smooth other NLP models  </p>
+
+<ul>
+<li>For text classification  </li>
+<li>In domains where the of zeros isn't so huge.  </li>
+</ul>
+
+<p>It helps for me to think of this as an analogy to the concept of antialiasing in bitmap-graphics.</p>
+
+<hr />
+
+<p>Further reading on smoothing:<br />
+<em>Microsoft Research / Stanley F. Chen &amp; Joshua Goodman</em>
+<a href="http://research.microsoft.com/~joshuago/tr-10-98.pdf" title="An Empirical Study of Smoothing Techniques for">http://research.microsoft.com/~joshuago/tr-10-98.pdf</a></p>
+
+<hr />
+
+<h2>Interpolation</h2>
+
+<p>Sometimes it helps to use <strong>less</strong> context, applying the requirement for less context with respect to context/situations you haven't learned much about. (rewrite)?</p>
+
+<p><strong>Backoff:</strong>  </p>
+
+<ul>
+<li><em>Use a trigram if you have good evidence/data</em>  </li>
+<li>What if you haven't seen a trigram, you look at the bigrams, or if they don't exist for that combination, then you can look look at the unigram.</li>
+</ul>
+
+<p><strong>Interpolation:</strong>  </p>
+
+<ul>
+<li>mixing unigram, bigram, trigram. </li>
+<li>Interpolation tends to work better than backoff. <strong>(clarify?)</strong></li>
+</ul>
+
+<p>There are (broadly speaking) two kinds of interpolation.<br />
+<strong>(lambda=λ, must sum to 1 to make them a probability)</strong></p>
+
+<p>Linear Interpolation: </p>
+
+<ul>
+<li><p><strong>Simple interpolation</strong>   </p>
+
+<p>Adding 1gram+2gram+3gram together depending on weights (λ)<br />
+P_hat(Wn|Wn-1Wn-2) =<br />
+λ1 * P(trigram) + λ2 * P(bigram) + λ3 * P(unigram)  </p></li>
+<li><p><strong>Lambdas conditional on context:</strong> (slightly more complicated)  </p>
+
+<p>Now lambdas are dependant on what the previous two words were.</p></li>
+</ul>
+
+<p><strong>Where do the lambdas come from?</strong> How to set lambdas? <em>We use a held-out corpus</em>. Choose λ to maximize the probability of held-out data:  </p>
+
+<ul>
+<li>Fix the N-gram probabilities (on the training data)</li>
+<li>Then search for λs that give the largest probability to held-out set.</li>
+</ul>
+
+<p>(LaTeX needed)
+log P(Wi...Wn|M(λ1...λk)) = sigma over all i log Pm(λ1....λk) ( Wi|Wi-1)  </p>
+
+<p>The held out corpus can be used to set the lambdas, the idea is we take training data, train some Ngrams then choose which lambdas I would use to interpolate those ngams such that it gives me the highest probability of (predicting accurately) this held out data. Find the set of probabilities such that log probabilities of the words of the held out data are highest.</p>
+
+<h2>Unknown words: Open versus closed vocabulary tasks</h2>
+
+<p>If we know all the words in advanced then Vocabulary V is fixed and we are talking about a <strong>Closed vocabulary task</strong> (menus, predefined scenarios). Often we don't know this (if a vocabulary is fixed or not) in advance. This translates into <strong>Out of Vocabulary</strong> (OOV) words, and turns the exercise into an <strong>Open vocabulary Task</strong>. </p>
+
+<p>Instead: utilize an unknown word token &lt; UNK > and train on &lt; UNK > probabilities.  </p>
+
+<ul>
+<li>Create a fixed lexicon L of size V  </li>
+<li>At text normalization phase, any training word not in L (all OOV words..or rare words) changed to &lt; UNK >  </li>
+<li>Now we train its probabilities like any normal word.  </li>
+<li>At decoding time, if text input (doesn't match) use UNK probabilities for any such word not in the training data. </li>
+</ul>
+
+<p><strong>Huge web-scale n-grams</strong>  </p>
+
+<p>How do we deal with computing probs in such large spaces, we prune. we only story non singleton counts. or compute the entropy/plexity and decide to remove ones that don't contribute (entropy based pruning)</p>
+
+<p><strong>Efficiency</strong>  </p>
+
+<ul>
+<li>Efficient data structures like <em>tries</em>  </li>
+<li>Bloom filters: apx language models (clarification needed)</li>
+<li>Store as indices, not strings.<br />
+<ul>
+<li>use huffman encoding to fit large numbers of words into 2 byes.</li>
+</ul></li>
+<li>Quantize probabilities (4-8 bits instead of 8-byte float)</li>
+</ul>
+
+<p><strong>Smoothing for web-scale N-grams</strong></p>
+
+<p>Use <strong>"stupid backoff"</strong>? (Brants et al. 2007)  (uses scores, rather than probabilities)
+or <strong>No Discounting</strong>, just use relative frequencies.</p>
+
+<ul>
+<li>Insert LaTeX here</li>
+</ul>
+
+<p>Add-1 smoothing is ok for text classification but not so great for language modeling. The mot commonly used method of interpolation is the <strong>Extended Kneser-Ney method (elaborate)</strong>. However, for very large N-grams like the web, <em>stupid backoff</em> is often adequate.</p>
+
+<p><strong>Advanced Language Modeling</strong>  </p>
+
+<p>Recent research:</p>
+
+<ul>
+<li><strong>Discrimintive models</strong>: choose n-gram weights to improve a task, not to fit the training set/data.  </li>
+<li><strong>Parsing-based models</strong> ( elaborate soon ).    </li>
+<li><strong>Caching Models</strong>: train on recently used words, they have increased probability of reappearing.<br />
+Pcache(W|history) =<br />
+lambdaP(Wi|Wi-2, Wi-1) + (1-lambda)(C(W function of history / |history|)<br />
+<ul>
+<li>Caching model has weak performance in speech recognition (Why?)</li>
+</ul></li>
+</ul>
+
+<h2>Good Turing Smoothing</h2>
+
+<ul>
+<li>General Formulations (LaTeX)  </li>
+<li>Unigram Prior Smoothing (LaTeX), works well, but not great for <strong>LM</strong>)  </li>
+<li>Advanced smoothing algorithms, based on some form of intuition
+<ul>
+<li>Good-Turing  </li>
+<li>Kneser-Ney  </li>
+<li>Witten-Bell  </li>
+</ul></li>
+</ul>
+
+<blockquote>
+  <p><em>The goal of smoothing algorithms is to replace those unseen zeros with a number that relates to a proposed likelyhood of being present in the body of text being looked at. Sometimes this means using the counts of words that you've seen once to help estimate the count of things we've never seen.</em></p>
+</blockquote>
+
+<p><strong>Notion: N sub c</strong> = Frequency of frequency c  </p>
+
+<ul>
+<li>Nc = count of things we've seen c times.  </li>
+<li><p>Sam I am I am Sam I do not eat  </p>
+
+<p>I   3   &lt;   N sub 3 = 1  </p>
+
+<p>sam 2   &lt;<br />
+am  2   &lt;   N sub 2 = 2  </p>
+
+<p>do  1   &lt;<br />
+not 1   &lt;<br />
+eat 1   &lt;   N sub 1 = 3</p></li>
+</ul>
+
+<p>Imagine this scenario (by Josh Goodman). You are fishing and catch: 10 carp, 3 perch, 2 whitefish, 1 trout, 1 salmon, 1 eel. A total of 18 fish.  </p>
+
+<p><em>How likely is it that the next species is trout?</em> 1/18<br />
+That's fine for species your encountered previously. But how to respond to a new species, <em>what is the likelyhood of catfish or bass?</em>  </p>
+
+<ul>
+<li>We can use the estimate of things-we-saw-once to estimate the new things.  </li>
+<li>3/18 (because N sub 1 = 3)  </li>
+</ul>
+
+<p>Assuming this statement, how likely is it that the next species is trout? It must be less than 1/18 because are going to use probability mass from each fish we have seen and add it to the unseen fish probability. <strong>How do we adjust the new probability spread?</strong>  </p>
+
+<p><strong>Good Turing calculations</strong>  </p>
+
+<blockquote>
+  <p>P star subGT (things with zero frequency) = N1 / N  </p>
+  
+  <p>c star = ((c+1)*Nsubc+1) / Nsubc  </p>
+</blockquote>
+
+<ul>
+<li><p>Unseen fish ( bass, catfish) </p>
+
+<ul>
+<li>c = 0;</li>
+<li>MLEp = 0/18 = 0</li>
+</ul>
+
+<p>adjusted for good turing:  </p>
+
+<ul>
+<li>P star sub GT(unseen) = Nsub1/N = 3/18  </li>
+</ul></li>
+<li><p>Seen fish once (trout)  </p>
+
+<ul>
+<li>c = 1</li>
+<li>MLE p = 1/18  </li>
+</ul>
+
+<p>adjusted for good turing:  </p>
+
+<ul>
+<li>c star(trout) = (2<em>Nsub2) / Nsub1 = (2</em>1)/3 = 2/3  </li>
+<li>P star sub GT(trout) = (2/3) / 18 = 1/27  </li>
+</ul></li>
+</ul>
+
+<p><strong>Complications of Good-Turing</strong>  </p>
+
+<blockquote>
+  <p>we can't always use N sub k+1, </p>
+</blockquote>
+
+<ul>
+<li>For small k, Nsubk > N subk+1</li>
+<li><p>For large k, too jumpy, zeros wreck estimates.</p></li>
+<li><p>Simple Good-Turning [Gale &amp; Sampson] replace empircal Nsubk with best-fit power law once count counts get unreliable. (use a power log function to perform best fit after a certain count of Nsubk) (The graph them combines discreet histogram and at a cutoff point converts everything to a long tail curve)</p></li>
+</ul>
+
+<p><strong>Resulting good-Turing numbers:</strong><br />
+Example: Numbes from Church and Gale (1991) / 22 million words of AP newswire.</p>
+
+<p>c* = {{(c+1)N<em>{c+1}} \over {N</em>c}}  </p>
+
+<p>What is the general relationship betwen these counts?</p>
+
+<pre><code>Count c |   Good Turing c*  
+0       |   0.0000270  
+1       |   0.446  
+2       |   1.26  
+3       |   2.24  
+4       |   3.24  
+5       |   4.22  
+6       |   4.19  
+7       |   6.21  
+8       |   7.24  
+9       |   8.25  
+</code></pre>
+
+<p>Mostly here it's -.75 on each count.</p>
+
+<h2>Kneser-Ney</h2>
+
+<p>One of the most sophisticated, is Kneser-Ney and it might be intuitive.  </p>
+
+<p><strong>Absolute Discounting Interpolation</strong>  </p>
+
+<ul>
+<li>save time by doing no brain subtraction of .75 (or some other discount value for different corpera)<br />
+P sub AbsoluteDiscounting(Wi|Wi-1) =<br />
+(c(Wi-1,Wi) - d) / c(Wi-1) + lambda * (Wi-1) * P(W)</li>
+</ul>
+
+<p><strong>Kneser-Ney Smoothing 1</strong> offers a better estimate for probabilities of lower-order unigram.<br />
+Example from shannon game: <i>I can't see without my reading <strong><em>_</em>__</strong></i>.<br />
+The unigram is useful exactly when we haven't seen a bigram.  </p>
+
+<ul>
+<li>Instead of P(W): "How likely is w"</li>
+<li>Psub continuation(W): "How likely is w to appear as a novel continuation?"  </li>
+</ul>
+
+<blockquote>
+  <p>How do we measure novel continuation? : For each word, count the number of bigram types it completes/creates
+   Every bigram type was a novel continuation the first time it was seen.<br />
+        <strong>Pcontinuation(W) is proportional to | { Wi-1:c(Wi-1,W)>0 } |</strong>  </p>
+</blockquote>
+
+<p><strong>Kneser-Ney Smoothing 2</strong>
+How many times does w appear as a novel continuation:  </p>
+
+<ul>
+<li>Pcontinuation(W) \propto | { Wi-1:c(Wi-1,W)>0 } |</li>
+</ul>
+
+<p>Normalized by total number of word bigram types:</p>
+
+<ul>
+<li>| { (Wj-1,Wj):c(Wj-1,Wj)>0 } |    what is the cardinality of this set,</li>
+</ul>
+
+<p>Pcontinuation(W) = |{Wi-1:c(Wi-1,W)>0}| / |{ (Wj-1,Wj):c(Wj-1,Wj)>0}|<br />
+or LaTeX</p>
+
+<pre><code>P_{CONTINUATION}(w) = {|\{w_{i-1}:c(w_{i-1},w)&gt;0\}| 
+ \over
+|\{(w_{j-1},w_j):c(w_{j-1},w_j)&gt;0\}|}
+</code></pre>
+
+<p><img src="http://chart.apis.google.com/chart?chf=bg,s,00000000&amp;cht=tx&amp;chl=P_{continuation}(w)={\left|\big{w_{i-1}\hspace{2mm}:\hspace{2mm}c(w_{i-1},w)>0\big}\right|\over\left|\big{(w_{j-1},w_j)\hspace{2mm}:\hspace{2mm}c(w_{j-1},w_j)>0\big}\right|}" alt="p_cont" /></p>
+
+<p><strong>Kneser-Ney SMoothing 3</strong><br />
+Alternative metaphor: The number # of word types seen to precede w. Normalized by the # of words preceding all words:</p>
+
+<p>Latex.  </p>
+
+<p><strong>Kneser-Ney Smoothing 4</strong>  </p>
+
+<p>Latex.  </p>
+
+<p><strong>Kneser-Ney Recursion</strong></p>
+
+<hr />
+
+<p>harvesting semantic relation / espresso http://www.patrickpantel.com/download/papers/2006/acl06-01.pdf</p>
+
+</body>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
+</html>
