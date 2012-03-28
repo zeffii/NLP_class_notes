@@ -14,15 +14,19 @@ Used in _machine translation_ and _spell correction_
 Goal of language model is (Also called '**the grammar**' or '**LM**'):  
 
 - compute probability of a sentence or sequence of words.  
-P(W) = P(W1, W2...Wn)  
 
 	![](http://chart.apis.google.com/chart?chf=bg,s,00000000&cht=tx&chl=P(W)=P(W_1,W_2...W_n))
   
-- Probability of an upcoming word is P(W5|W1, W2...W4)
+- Probability of an upcoming word is  
+
+	![](http://chart.apis.google.com/chart?chf=bg,s,00000000&cht=tx&chl=P(W_5|W_1,W_2...W_4))  
+
 
 **How to compute this?** Use the chain rule of probability. Definition of conditional probabilities:  
 
-- P(A|B) = P(A, B) / P(B)
+![](http://chart.apis.google.com/chart?chf=bg,s,00000000&cht=tx&chl=P(A|B)={P(A,B)\over{P(B)}}) 
+
+
 - P(A|B) * P(B) = P(A, B)
 - P(A, B) = P(A|B) * P(B)  
 
