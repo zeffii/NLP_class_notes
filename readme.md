@@ -4,6 +4,8 @@ Annotations and personal elaborations on the Coursera material for the Natural L
 
 This Markup is best read in markdownpad from [markdownpad.com](http://www.markdownpad.com "markdownpad"). Sadly the original implementation of markdown does not include support for LaTex, if it bugs me enough it might be worth writing a parser that does.
 
+edit: It turns out this is also a showcase of a variety of TeX setting techniques.
+
 ### Language modeling ###
 
 **Language modeling** is about _**assigning probabilities to a sentence**_.
@@ -13,6 +15,9 @@ Goal of language model is (Also called '**the grammar**' or '**LM**'):
 
 - compute probability of a sentence or sequence of words.  
 P(W) = P(W1, W2...Wn)  
+
+	![](http://chart.apis.google.com/chart?chf=bg,s,00000000&cht=tx&chl=P(W)=P(W_1,W_2...W_n))
+  
 - Probability of an upcoming word is P(W5|W1, W2...W4)
 
 **How to compute this?** Use the chain rule of probability. Definition of conditional probabilities:  
@@ -486,7 +491,15 @@ or LaTeX
 	 \over
 	|\{(w_{j-1},w_j):c(w_{j-1},w_j)>0\}|}
 
-![p_continuation](http://dl.dropbox.com/u/3397495/Pcontinuation.gif)
+
+![p_cont](http://chart.apis.google.com/chart?chf=bg,s,00000000&cht=tx&chl=P_{continuation}(w)={\left|\big\{w_{i-1}\hspace{2mm}:\hspace{2mm}c(w_{i-1},w)>0\big\}\right|\over\left|\big\{(w_{j-1},w_j)\hspace{2mm}:\hspace{2mm}c(w_{j-1},w_j)>0\big\}\right|})
+
+
+
+
+
+
+
 
 **Kneser-Ney SMoothing 3**  
 Alternative metaphor: The number # of word types seen to precede w. Normalized by the # of words preceding all words:
